@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DS Tours</title>
+    <meta name="description" content="Get in touch with DS Tours to plan your Sri Lankan adventure.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#00897b',
+                        'brand-dark': '#004d40',
+                        'brand-gold': '#ffb300',
+                        'brand-sand': '#f7f3e8',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1590766940554-634a7ed41450?q=80&w=2574&auto=format&fit=crop');
+            /* Map or office feeling */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-sand text-gray-800 font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-dark shadow-lg" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
+                <span class="text-brand-gold text-3xl">✈</span> DS TOURS
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-white hover:text-brand-gold transition-colors font-medium">Home</a>
+                <a href="about.html" class="text-white hover:text-brand-gold transition-colors font-medium">About</a>
+                <a href="destinations.html"
+                    class="text-white hover:text-brand-gold transition-colors font-medium">Destinations</a>
+                <a href="services.html"
+                    class="text-white hover:text-brand-gold transition-colors font-medium">Services</a>
+                <a href="contact.html"
+                    class="px-6 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-yellow-400 transition-transform transform hover:scale-105 shadow-lg">Contact
+                    Us</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark shadow-xl border-t border-gray-700">
+            <div class="flex flex-col py-4 px-6 space-y-4">
+                <a href="index.html" class="text-white hover:text-brand-gold">Home</a>
+                <a href="about.html" class="text-white hover:text-brand-gold">About</a>
+                <a href="destinations.html" class="text-white hover:text-brand-gold">Destinations</a>
+                <a href="services.html" class="text-white hover:text-brand-gold">Services</a>
+                <a href="contact.html" class="text-brand-gold font-bold">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="h-[50vh] flex items-center justify-center text-center hero-bg pt-20">
+        <div class="px-6 reveal active">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Contact Us</h1>
+            <p class="text-xl text-gray-200">We'd love to hear from you</p>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-12">
+
+                <!-- Contact Info -->
+                <div class="reveal">
+                    <h2 class="text-3xl font-bold text-brand-dark mb-6">Get in Touch</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Whether you want to book a tour, ask a question, or customize your itinerary, we are here to
+                        help. Reach out to us via phone, email, or WhatsApp.
+                    </p>
+
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <span class="text-2xl mt-1">📞</span>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Phone / WhatsApp</h4>
+                                <a href="https://wa.me/94743205752" class="text-brand-green hover:underline text-lg">+94
+                                    74 320 5752</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-2xl mt-1">📧</span>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Email</h4>
+                                <a href="mailto:info@dstours.lk"
+                                    class="text-brand-green hover:underline text-lg">info@dstours.lk</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-2xl mt-1">📍</span>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Location</h4>
+                                <p class="text-gray-600">Sri Lanka (Island-wide Service)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-2xl mt-1">👍</span>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Follow Us</h4>
+                                <div class="flex gap-4 mt-2">
+                                    <a href="https://www.facebook.com/share/1BkkfcHzQL/?mibextid=wwXIfr" target="_blank"
+                                        class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-700 transition-colors text-white shadow-lg">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://wa.me/94743205752" target="_blank"
+                                        class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center hover:bg-green-600 transition-colors text-white shadow-lg">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-xl shadow-xl reveal">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-bold mb-2">Your Name</label>
+                                <input type="text" id="name"
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold bg-gray-50"
+                                    placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label for="whatsapp" class="block text-gray-700 font-bold mb-2">WhatsApp Number</label>
+                                <input type="tel" id="whatsapp"
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold bg-gray-50"
+                                    placeholder="+94 7X XXX XXXX">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="location" class="block text-gray-700 font-bold mb-2">Visit Location</label>
+                                <select id="location"
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold bg-gray-50">
+                                    <option value="" disabled selected>Select a location</option>
+                                    <option value="Sigiriya">Sigiriya</option>
+                                    <option value="Ella">Ella</option>
+                                    <option value="Mirissa">Mirissa</option>
+                                    <option value="Kandy">Kandy</option>
+                                    <option value="Galle Fort">Galle Fort</option>
+                                    <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                    <option value="Yala National Park">Yala National Park</option>
+                                    <option value="Anuradhapura">Anuradhapura</option>
+                                    <option value="Polonnaruwa">Polonnaruwa</option>
+                                    <option value="Round Tour">Round Tour (Multiple Lists)</option>
+                                    <option value="Airport Transfer">Airport Transfer</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="vehicle" class="block text-gray-700 font-bold mb-2">Vehicle Type</label>
+                                <select id="vehicle"
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold bg-gray-50">
+                                    <option value="" disabled selected>Select vehicle</option>
+                                    <option value="Car">Car (Up to 3 Pax)</option>
+                                    <option value="Van">Van (Up to 10 Pax)</option>
+                                    <option value="Bus">Bus (10+ Pax)</option>
+                                    <option value="Safari Jeep">Safari Jeep</option>
+                                    <option value="Tuk Tuk">Tuk Tuk</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="passengers" class="block text-gray-700 font-bold mb-2">Passenger Count</label>
+                            <input type="number" id="passengers" min="1"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold bg-gray-50"
+                                placeholder="Number of people">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-gray-700 font-bold mb-2">Additional Message /
+                                Details</label>
+                            <textarea id="message" rows="4"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold bg-gray-50"
+                                placeholder="Tell us more about your travel plans..."></textarea>
+                        </div>
+
+                        <button type="button" onclick="sendWhatsAppMessage()"
+                            class="w-full py-4 bg-brand-dark text-white font-bold rounded-lg hover:bg-brand-green transition-colors shadow-lg flex items-center justify-center gap-2">
+                            <span>Send Message via WhatsApp</span>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map (Optional Placeholder) -->
+            <div class="mt-20 reveal rounded-xl overflow-hidden shadow-xl h-96">
+                <!-- Using a static map image for better performance/look in demo, linking to GMap. Or iframe. iframe is better. -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2023594.385806443!2d79.4116035!3d7.8596765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2593cf65a1e9d%3A0xe13da4b400e2d38c!2sSri%20Lanka!5e0!3m2!1sen!2slk!4v1645000000000!5m2!1sen!2slk"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6 border-t border-gray-800">
+        <div class="container mx-auto grid md:grid-cols-3 gap-12 mb-8">
+            <div>
+                <a href="index.html" class="text-2xl font-bold text-white tracking-wider flex items-center gap-2 mb-4">
+                    <span class="text-brand-gold text-3xl">✈</span> DS TOURS
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Your trusted partner for exploring the wonders of Sri Lanka. We provide safe, reliable, and
+                    memorable travel experiences.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-brand-gold">Quick Links</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="destinations.html" class="hover:text-white transition-colors">Destinations</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-brand-gold">Contact Us</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li class="flex items-center gap-2">
+                        <span>📞</span> <a href="tel:+94743205752" class="hover:text-white">+94 74 320 5752</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>📧</span> <a href="mailto:info@dstours.lk" class="hover:text-white">info@dstours.lk</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>📍</span> Sri Lanka
+                    </li>
+                </ul>
+                <div class="mt-6 flex gap-4">
+                    <a href="https://www.facebook.com/share/1BkkfcHzQL/?mibextid=wwXIfr" target="_blank"
+                        class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-700 transition-colors">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/94743205752" target="_blank"
+                        class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center hover:bg-green-600 transition-colors">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                    </a>
+
+                    <!-- Scripts -->
+                    <script src="js/script.js"></script>
+                    <script>
+                        // Check for 'dest' query parameter to pre-fill location
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const dest = urlParams.get('dest');
+                        if (dest) {
+                            const locationSelect = document.getElementById('location');
+                            const formattedDest = dest.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                            // Try to set the value if it mimics one of the options, essentially partial matching or direct matching
+                            for (let i = 0; i < locationSelect.options.length; i++) {
+                                if (locationSelect.options[i].value.toLowerCase() === formattedDest.toLowerCase()) {
+                                    locationSelect.selectedIndex = i;
+                                    break;
+                                }
+                            }
+                        }
+
+                        function sendWhatsAppMessage() {
+                            // Get form values
+                            const name = document.getElementById('name').value;
+                            const whatsapp = document.getElementById('whatsapp').value;
+                            const location = document.getElementById('location').value;
+                            const vehicle = document.getElementById('vehicle').value;
+                            const passengers = document.getElementById('passengers').value;
+                            const message = document.getElementById('message').value;
+
+                            // Validation (Basic)
+                            if (!name || !whatsapp || !location || !vehicle || !passengers) {
+                                alert('Please fill in all required fields (Name, WhatsApp, Location, Vehicle, Passengers).');
+                                return;
+                            }
+
+                            // Construct WhatsApp Message
+                            const companyNumber = "94743205752"; // Target number
+                            const text = `*New Booking Inquiry*\n\n` +
+                                `*Name:* ${name}\n` +
+                                `*Client WhatsApp:* ${whatsapp}\n` +
+                                `*Location:* ${location}\n` +
+                                `*Vehicle:* ${vehicle}\n` +
+                                `*Passengers:* ${passengers}\n` +
+                                `*Message:* ${message ? message : 'N/A'}`;
+
+                            const encodedText = encodeURIComponent(text);
+                            const url = `https://wa.me/${companyNumber}?text=${encodedText}`;
+
+                            // Open WhatsApp
+                            window.open(url, '_blank');
+                        }
+                    </script>
+</body>
+
+</html>
