@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us - Ceylon Crown Travels</title>
+    <meta name="description" content="Share your experience with Ceylon Crown Travels. We value your feedback.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#00897b',
+                        'brand-dark': '#004d40',
+                        'brand-gold': '#ffb300',
+                        'brand-sand': '#f7f3e8',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .star-icon {
+            cursor: pointer;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .star-icon.filled {
+            color: #ffb300;
+            /* brand-gold */
+        }
+
+        .star-icon:hover,
+        .star-icon:hover~.star-icon {
+            color: #ffb300;
+            /* brand-gold */
+        }
+
+        /* Handle star hovering: we need a way to hover and fill previous stars but not next.
+           CSS sibling selector ~ selects following siblings. So if we hover on 3rd star, 4th and 5th are selected by ~.
+           We want to color 1, 2, 3. The standard trick is flex-direction: row-reverse.
+        */
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+            color: #ccc;
+            transition: color 0.2s ease-in-out;
+            margin: 0 5px;
+        }
+
+        .star-rating input:checked~label {
+            color: #ffb300;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover~label {
+            color: #ffb300;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-sand text-gray-800 font-sans overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-dark shadow-lg" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
+                <span class="text-brand-gold text-3xl">✈</span> Ceylon Crown Travels
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-white hover:text-brand-gold transition-colors font-medium">Home</a>
+                <a href="about.html" class="text-white hover:text-brand-gold transition-colors font-medium">About</a>
+                <a href="destinations.html"
+                    class="text-white hover:text-brand-gold transition-colors font-medium">Destinations</a>
+                <a href="services.html"
+                    class="text-white hover:text-brand-gold transition-colors font-medium">Services</a>
+                <a href="rate-us.html"
+                    class="text-brand-gold border-b-2 border-brand-gold font-bold transition-colors">Rate Us</a>
+                <a href="contact.html"
+                    class="px-6 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-yellow-400 transition-transform transform hover:scale-105 shadow-lg">Contact
+                    Us</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark shadow-xl border-t border-gray-700">
+            <div class="flex flex-col py-4 px-6 space-y-4">
+                <a href="index.html" class="text-white hover:text-brand-gold">Home</a>
+                <a href="about.html" class="text-white hover:text-brand-gold">About</a>
+                <a href="destinations.html" class="text-white hover:text-brand-gold">Destinations</a>
+                <a href="services.html" class="text-white hover:text-brand-gold">Services</a>
+                <a href="rate-us.html" class="text-brand-gold font-bold">Rate Us</a>
+                <a href="contact.html" class="text-white hover:text-brand-gold">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-20 px-6">
+        <div class="container mx-auto max-w-2xl">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative overflow-hidden">
+                <!-- Background Decoration -->
+                <div
+                    class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-brand-gold rounded-full opacity-10 blur-3xl">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-brand-green rounded-full opacity-10 blur-3xl">
+                </div>
+
+                <div class="relative z-10 text-center mb-10">
+                    <h1 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Rate Your Experience</h1>
+                    <p class="text-gray-600">Your feedback helps us improve and provide better service to travelers like
+                        you.</p>
+                </div>
+
+                <!-- Rating Summary -->
+                <div id="ratingSummary" class="bg-brand-sand/50 rounded-xl p-6 mb-8 hidden">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <!-- Overall Score -->
+                        <div class="text-center md:text-left">
+                            <div class="text-5xl font-bold text-brand-dark" id="summaryAvg">0.0</div>
+                            <div class="text-brand-gold text-2xl my-1" id="summaryStars">★★★★★</div>
+                            <p class="text-sm text-gray-500">Based on <span id="summaryCount">0</span> reviews</p>
+                        </div>
+
+                        <!-- Distribution Bars -->
+                        <div class="w-full max-w-xs space-y-2">
+                            <!-- 5 Stars -->
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <span class="w-3">5</span> <span class="text-brand-gold">★</span>
+                                <div class="flex-grow bg-gray-200 rounded-full h-2">
+                                    <div class="bg-brand-gold h-2 rounded-full" style="width: 0%" id="bar5"></div>
+                                </div>
+                                <span class="w-6 text-right" id="count5">0</span>
+                            </div>
+                            <!-- 4 Stars -->
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <span class="w-3">4</span> <span class="text-brand-gold">★</span>
+                                <div class="flex-grow bg-gray-200 rounded-full h-2">
+                                    <div class="bg-brand-gold h-2 rounded-full" style="width: 0%" id="bar4"></div>
+                                </div>
+                                <span class="w-6 text-right" id="count4">0</span>
+                            </div>
+                            <!-- 3 Stars -->
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <span class="w-3">3</span> <span class="text-brand-gold">★</span>
+                                <div class="flex-grow bg-gray-200 rounded-full h-2">
+                                    <div class="bg-brand-gold h-2 rounded-full" style="width: 0%" id="bar3"></div>
+                                </div>
+                                <span class="w-6 text-right" id="count3">0</span>
+                            </div>
+                            <!-- 2 Stars -->
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <span class="w-3">2</span> <span class="text-brand-gold">★</span>
+                                <div class="flex-grow bg-gray-200 rounded-full h-2">
+                                    <div class="bg-brand-gold h-2 rounded-full" style="width: 0%" id="bar2"></div>
+                                </div>
+                                <span class="w-6 text-right" id="count2">0</span>
+                            </div>
+                            <!-- 1 Star -->
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <span class="w-3">1</span> <span class="text-brand-gold">★</span>
+                                <div class="flex-grow bg-gray-200 rounded-full h-2">
+                                    <div class="bg-brand-gold h-2 rounded-full" style="width: 0%" id="bar1"></div>
+                                </div>
+                                <span class="w-6 text-right" id="count1">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="ratingForm" class="relative z-10 space-y-6">
+                    <!-- Rating Stars -->
+                    <div class="flex flex-col items-center mb-8">
+                        <label class="block text-gray-700 font-semibold mb-2">How would you rate us?</label>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5" required /><label for="star5"
+                                title="5 stars">★</label>
+                            <input type="radio" id="star4" name="rating" value="4" /><label for="star4"
+                                title="4 stars">★</label>
+                            <input type="radio" id="star3" name="rating" value="3" /><label for="star3"
+                                title="3 stars">★</label>
+                            <input type="radio" id="star2" name="rating" value="2" /><label for="star2"
+                                title="2 stars">★</label>
+                            <input type="radio" id="star1" name="rating" value="1" /><label for="star1"
+                                title="1 star">★</label>
+                        </div>
+                    </div>
+
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition-all placeholder-gray-400"
+                            placeholder="John Doe">
+                    </div>
+
+                    <!-- Feedback -->
+                    <div>
+                        <label for="comment" class="block text-gray-700 font-semibold mb-2">Share your thoughts</label>
+                        <textarea id="comment" name="comment" rows="4" required
+                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none transition-all placeholder-gray-400"
+                            placeholder="Tell us about your trip..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                        class="w-full py-4 bg-brand-green text-white rounded-lg font-bold text-lg hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Submit Review
+                    </button>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="successMessage" class="hidden text-center py-10">
+                    <div
+                        class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-500 text-3xl">
+                        ✓
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Thank You!</h3>
+                    <p class="text-gray-600 mb-6">Your feedback has been submitted successfully.</p>
+                    <button id="submitNew" class="text-brand-green font-bold hover:underline">Submit another
+                        review</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6 border-t border-gray-800 mt-auto">
+        <div class="container mx-auto grid md:grid-cols-3 gap-12 mb-8">
+            <div>
+                <a href="#" class="text-2xl font-bold text-white tracking-wider flex items-center gap-2 mb-4">
+                    <span class="text-brand-gold text-3xl">✈</span> Ceylon Crown Travels
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Your trusted partner for exploring the wonders of Sri Lanka.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-brand-gold">Quick Links</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="destinations.html" class="hover:text-white transition-colors">Destinations</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                    <li><a href="rate-us.html" class="text-brand-gold transition-colors">Rate Us</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-brand-gold">Contact Us</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li>📞 <a href="tel:+94743205752" class="hover:text-white">+94 74 320 5752</a></li>
+                    <li>📧 <a href="mailto:malakapramod23@gamil.com"
+                            class="hover:text-white">CeylonCrownTravels@gamil.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2024 Ceylon Crown Travels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Form Handling Logic
+        const form = document.getElementById('ratingForm');
+        const successMessage = document.getElementById('successMessage');
+        const submitNewBtn = document.getElementById('submitNew');
+
+        // Update Summary Display (Async)
+        async function updateSummary() {
+            if (!window.StorageService) return;
+
+            // Wait for data
+            const ratings = await window.StorageService.getRatings();
+            const avg = await window.StorageService.getAverageRating();
+            const distribution = await window.StorageService.getRatingDistribution();
+            const total = ratings.length;
+
+            if (total > 0) {
+                document.getElementById('ratingSummary').classList.remove('hidden');
+
+                // Update Avg
+                document.getElementById('summaryAvg').innerText = avg;
+                document.getElementById('summaryCount').innerText = total;
+
+                // Stars
+                let starHTML = '';
+                for (let i = 1; i <= 5; i++) {
+                    starHTML += i <= Math.round(avg) ? '★' : '<span class="text-gray-300">★</span>';
+                }
+                document.getElementById('summaryStars').innerHTML = starHTML;
+
+                // Bars
+                for (let i = 1; i <= 5; i++) {
+                    const count = distribution[i] || 0;
+                    const percentage = (count / total) * 100;
+                    document.getElementById(`bar\${i}`).style.width = `\${percentage}%`;
+                    document.getElementById(`count\${i}`).innerText = count;
+                }
+            }
+        }
+
+        // Init
+        updateSummary();
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(form);
+            const ratingData = {
+                name: formData.get('name'),
+                rating: formData.get('rating'),
+                comment: formData.get('comment')
+            };
+
+            // Save using our storage service
+            if (window.StorageService) {
+                await window.StorageService.saveRating(ratingData); // Async call
+
+                // Refresh Summary
+                await updateSummary();
+
+                // Show success
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                form.reset();
+            } else {
+                alert('Storage service not available!');
+            }
+        });
+
+        submitNewBtn.addEventListener('click', () => {
+            successMessage.classList.add('hidden');
+            form.classList.remove('hidden');
+        });
+    </script>
+</body>
+
+</html>

@@ -75,6 +75,8 @@
                 <a href="destinations.html" class="text-brand-gold transition-colors font-medium">Destinations</a>
                 <a href="services.html"
                     class="text-white hover:text-brand-gold transition-colors font-medium">Services</a>
+                <a href="rate-us.html" class="text-white hover:text-brand-gold transition-colors font-medium">Rate
+                    Us</a>
                 <a href="contact.html"
                     class="px-6 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-yellow-400 transition-transform transform hover:scale-105 shadow-lg">Contact
                     Us</a>
@@ -94,6 +96,7 @@
                 <a href="about.html" class="text-white hover:text-brand-gold">About</a>
                 <a href="destinations.html" class="text-brand-gold">Destinations</a>
                 <a href="services.html" class="text-white hover:text-brand-gold">Services</a>
+                <a href="rate-us.html" class="text-white hover:text-brand-gold">Rate Us</a>
                 <a href="contact.html" class="text-brand-gold font-bold">Contact Us</a>
             </div>
         </div>
@@ -110,163 +113,106 @@
     <!-- Destinations Grid -->
     <section class="py-20 px-6">
         <div class="container mx-auto">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Destination 1: Sigiriya -->
-                <div
-                    class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://wallpapercave.com/wp/wp6828544.jpg"
-                            alt="Sigiriya"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Sigiriya</h3>
-                        <p class="text-gray-600 text-sm mb-4">Known as the Lion Rock, an ancient rock fortress located
-                            in the northern Matale District near the town of Dambulla.</p>
-                        <a href="contact.html?dest=sigiriya"
-                            class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
-                    </div>
+            <div id="destinationsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Content will be loaded dynamically -->
+                <div class="col-span-full text-center text-gray-500 py-12">
+                    Loading destinations...
                 </div>
-
-                <!-- Destination 2: Ella -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300"
-                    style="transition-delay: 100ms;">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://media.istockphoto.com/id/1131454948/photo/train-from-ella-to-kandy-sri-lanka.jpg?s=612x612&w=0&k=20&c=NP-35a8fqS9fzbO3tsO70VHXHBhQ_F9eYT_8uyckU6Y="
-                            alt="Ella"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Ella</h3>
-                        <p class="text-gray-600 text-sm mb-4">A small town in the Badulla District, famous for the Nine
-                            Arch Bridge, hiking, coffee plantations, and cool climate.</p>
-                        <a href="contact.html?dest=ella"
-                            class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
-                    </div>
-                </div>
-
-                <!-- Destination 3: Mirissa -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300"
-                    style="transition-delay: 200ms;">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://t4.ftcdn.net/jpg/01/87/77/33/360_F_187773353_dFK1bBRKVQiLgUvfqzSut3829IHZhKCB.jpg"
-                            alt="Mirissa"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Mirissa</h3>
-                        <p class="text-gray-600 text-sm mb-4">A small town on the south coast, a popular tourist
-                            destination for its beaches, nightlife, and whale watching.</p>
-                        <a href="contact.html?dest=mirissa"
-                            class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
-                    </div>
-                </div>
-
-                <!-- Destination 4: Kandy -->
-                <div
-                    class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://media.istockphoto.com/id/485792212/photo/temple-of-the-tooth-of-buddha-kandy-srilanka.jpg?s=612x612&w=0&k=20&c=Ptukh_Y5QCM6W2Qg96BrP7pcHpTM1rJZTRKZZpUat3Q="
-                            alt="Kandy"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Kandy</h3>
-                        <p class="text-gray-600 text-sm mb-4">A major city in Sri Lanka locating in the Central
-                            Province. It was the last capital of the ancient kings' era of Sri Lanka.</p>
-                        <a href="contact.html?dest=kandy"
-                            class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
-                    </div>
-                </div>
-
-                <!-- Destination 5: Galle Fort -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300"
-                    style="transition-delay: 100ms;">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://media.istockphoto.com/id/2133225433/photo/clock-tower-of-dutch-fort-galle-sri-lanka.jpg?s=612x612&w=0&k=20&c=L4eNQ_wGNLQW7QFLMefgAAjuljkE5T6cqSMvn8tddyE="
-                            alt="Galle"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Galle Fort</h3>
-                        <p class="text-gray-600 text-sm mb-4">A historic fortification built by the Portuguese and
-                            fortified by the Dutch, a UNESCO World Heritage Site.</p>
-                        <a href="contact.html?dest=galle"
-                            class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
-                    </div>
-                </div>
-
-                <!-- Destination 6: Nuwara Eliya -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300"
-                    style="transition-delay: 200ms;">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://media.istockphoto.com/id/185261058/photo/tea-plantation-in-sri-lanka.jpg?s=612x612&w=0&k=20&c=EYNjo-bxVZF-15eNOObUlzjefYsTWaG-Rn732RcRCRc="
-                            alt="Nuwara Eliya"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Nuwara Eliya</h3>
-                        <p class="text-gray-600 text-sm mb-4">Known as 'Little England', famous for its temperate, cool
-                            climate, colonial architecture, and tea plantations.</p>
-                        <a href="contact.html?dest=nuwara-eliya"
-                            class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
-                    </div>
-                </div>
-
-                <!-- Destination 7: Yala National Park -->
-                <div
-                    class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://srilankatourisminfo.com/wp-content/uploads/2025/12/Yala-National-Park-vs-Udawalawe.png"
-                            alt="Yala"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Yala National Park</h3>
-                        <p class="text-gray-600 text-sm mb-4">The most visited and second largest national park, known
-                            for its variety of wild animals, especially leopards.</p>
-                        <a href="contact.html?dest=yala"
-                            class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
-                    </div>
-                </div>
-                <!-- Destination 8: Anuradhapura -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300"
-                    style="transition-delay: 100ms;">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://media.istockphoto.com/id/807784176/photo/hdr-photography-of-the-ruins-of-anuradhapura-sri-lanka.jpg?s=612x612&w=0&k=20&c=Av6mFBL76Y_zQIDOLVyIeu7EUjO4yjROv-i1KEpp-JQ="
-                            alt="Anuradhapura"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Anuradhapura</h3>
-                        <p class="text-gray-600 text-sm mb-4">A major city, famous for its well-preserved ruins of an
-                            ancient Sinhala civillization. Another UNESCO World Heritage Site.</p>
-                        <a href="contact.html?dest=anuradhapura"
-                            class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
-                    </div>
-                </div>
-
-                <!-- Destination 9: Polonnaruwa -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300"
-                    style="transition-delay: 200ms;">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://media.istockphoto.com/id/1217318386/photo/ruins-of-medirigiriya-vatadage-polonnaruwa-sri-lanka.jpg?s=612x612&w=0&k=20&c=FyUaLFAgg2Fhy1SCIXWMtelDy5QdyLYxOUgkw6DiicM="
-                            alt="Polonnaruwa"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Polonnaruwa</h3>
-                        <p class="text-gray-600 text-sm mb-4">The second most ancient of Sri Lanka's kingdoms. It
-                            remains one of the best planned archaeological relic sites in the country.</p>
-                        <a href="contact.html?dest=polonnaruwa"
-                            class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
+
+    <script>
+        // --- HELPER: API Wrapper with Fallback (Consistent with Admin Panel) ---
+        async function apiCall(url) {
+            try {
+                // Try fetching from backend
+                const res = await fetch(url);
+                const contentType = res.headers.get("content-type");
+
+                // If response is not JSON (e.g., PHP source code returned), throw error
+                if (!contentType || !contentType.includes("application/json")) {
+                    throw new Error("Backend not running");
+                }
+
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Server Error');
+                return data;
+
+            } catch (err) {
+                console.warn(`Backend unreachable (${url}), using localStorage fallback.`);
+
+                // FALLBACK LOGIC
+                if (url.includes('destinations.php')) {
+                    // Start with some default data if localStorage is empty
+                    const defaultDestinations = [
+                        { id: 1, title: 'Sigiriya', description: 'Known as the Lion Rock, an ancient rock fortress located in the northern Matale District.', image_url: 'https://wallpapercave.com/wp/wp6828544.jpg' },
+                        { id: 2, title: 'Ella', description: 'Famous for the Nine Arch Bridge, hiking trails, and stunning mountain views.', image_url: 'https://media.istockphoto.com/id/1131454948/photo/train-from-ella-to-kandy-sri-lanka.jpg?s=612x612&w=0&k=20&c=NP-35a8fqS9fzbO3tsO70VHXHBhQ_F9eYT_8uyckU6Y=' },
+                        { id: 3, title: 'Mirissa', description: 'Golden beaches, whale watching, and vibrant nightlife.', image_url: 'https://t4.ftcdn.net/jpg/01/87/77/33/360_F_187773353_dFK1bBRKVQiLgUvfqzSut3829IHZhKCB.jpg' }
+                    ];
+                    // Save defaults if nothing exists
+                    const stored = localStorage.getItem('destinations');
+                    if (!stored) {
+                        localStorage.setItem('destinations', JSON.stringify(defaultDestinations));
+                        return defaultDestinations;
+                    }
+                    return JSON.parse(stored);
+                }
+                throw err;
+            }
+        }
+
+        async function loadDestinations() {
+            const grid = document.getElementById('destinationsGrid');
+
+            try {
+                // Use wrapper
+                const destinations = await apiCall('backend/destinations.php');
+
+                grid.innerHTML = ''; // Clear loading message
+
+                if (Array.isArray(destinations) && destinations.length > 0) {
+                    destinations.forEach((dest, index) => {
+                        const delay = (index % 3) * 100; // Staggered animation
+                        const card = `
+                            <div class="bg-white rounded-xl overflow-hidden shadow-lg reveal group hover:shadow-2xl transition-all duration-300" style="transition-delay: ${delay}ms; opacity: 1; transform: translateY(0);">
+                                <div class="relative overflow-hidden h-64">
+                                    <img src="${dest.image_url}" alt="${dest.title}"
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                                        onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-bold text-brand-dark mb-2">${dest.title}</h3>
+                                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">${dest.description}</p>
+                                    <a href="contact.html?dest=${encodeURIComponent(dest.title)}"
+                                        class="text-brand-green font-bold text-sm uppercase hover:text-brand-dark">Book Tour →</a>
+                                </div>
+                            </div>
+                        `;
+                        grid.insertAdjacentHTML('beforeend', card);
+                    });
+                } else {
+                    grid.innerHTML = `
+                        <div class="col-span-full text-center py-10">
+                            <h3 class="text-2xl text-gray-600 font-bold mb-2">No Destinations Found</h3>
+                            <p class="text-gray-500">Check back later for new tours!</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading destinations:', error);
+
+                // Show generic fallback or empty state if even fallback failed
+                grid.innerHTML = `
+                   <div class="col-span-full text-center py-10">
+                        <p class="text-gray-500">Unable to load destinations right now.</p>
+                   </div>
+                `;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadDestinations);
+    </script>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 px-6 border-t border-gray-800">
@@ -287,6 +233,7 @@
                     <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
                     <li><a href="destinations.html" class="hover:text-white transition-colors">Destinations</a></li>
                     <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                    <li><a href="rate-us.html" class="hover:text-white transition-colors">Rate Us</a></li>
                     <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
                 </ul>
             </div>
@@ -297,7 +244,8 @@
                         <span>📞</span> <a href="tel:+94743205752" class="hover:text-white">+94 74 320 5752</a>
                     </li>
                     <li class="flex items-center gap-2">
-                        <span>📧</span> <a href="mailto:malakapramod23@gamil.com" class="hover:text-white">CeylonCrownTravels@gamil.com</a>
+                        <span>📧</span> <a href="mailto:malakapramod23@gamil.com"
+                            class="hover:text-white">CeylonCrownTravels@gamil.com</a>
                     </li>
                     <li class="flex items-center gap-2">
                         <span>📍</span> Sri Lanka
@@ -318,9 +266,25 @@
                                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                         </svg>
                     </a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2024 Ceylon Crown Travels. All rights reserved.</p>
+        </div>
+    </footer>
 
-                    <!-- Scripts -->
-                    <script src="js/script.js"></script>
+    <!-- Fixed Floating WhatsApp Button -->
+    <a href="https://wa.me/94743205752" target="_blank"
+        class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 animate-float flex items-center justify-center">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
