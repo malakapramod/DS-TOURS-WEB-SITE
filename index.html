@@ -181,10 +181,127 @@
         .logo-animated:hover {
             transform: scale(1.05) rotate(2deg);
         }
+
+        /* Premium Image Background with Animation */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/main-bg.png');
+            /* Using main-bg.png as requested */
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            animation: ken-burns 30s infinite alternate ease-in-out;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 40%, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 1;
+        }
+
+        @keyframes ken-burns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.1) translate(-2%, -2%);
+            }
+        }
+
+        /* Subtle floating motes over the image */
+        .bg-mote {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: mote-float 20s infinite linear;
+        }
+
+        @keyframes mote-float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes move-blobs {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1.0);
+            }
+
+            33% {
+                transform: translate(100px, 150px) rotate(120deg) scale(1.2);
+            }
+
+            66% {
+                transform: translate(-50px, 200px) rotate(240deg) scale(0.9);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg) scale(1.0);
+            }
+        }
+
+        @keyframes move-blobs {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1.0);
+            }
+
+            33% {
+                transform: translate(100px, 150px) rotate(120deg) scale(1.2);
+            }
+
+            66% {
+                transform: translate(-50px, 200px) rotate(240deg) scale(0.9);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg) scale(1.0);
+            }
+        }
     </style>
 </head>
 
-<body class="bg-brand-sand text-gray-800 font-sans overflow-x-hidden">
+<body class="text-gray-800 font-sans overflow-x-hidden relative">
+
+    <!-- Animated Background Elements -->
+    <div class="animated-bg">
+        <div class="bg-image"></div>
+        <div class="bg-overlay"></div>
+        <!-- Light floaty motes for extra magic -->
+        <div class="bg-mote" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="bg-mote" style="left: 30%; animation-delay: -5s;"></div>
+        <div class="bg-mote" style="left: 50%; animation-delay: -10s;"></div>
+        <div class="bg-mote" style="left: 80%; animation-delay: -15s;"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
@@ -266,7 +383,7 @@
     </header>
 
     <!-- Intro Section -->
-    <section class="py-20 px-6 bg-white">
+    <section class="py-20 px-6 backdrop-blur-[4px] bg-white/30 border-y border-white/20">
         <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div class="reveal">
                 <img src="https://t4.ftcdn.net/jpg/02/90/79/53/360_F_290795351_i0kJX32HPEdjTgK1iSjaDjTb9MN3qk4O.jpg"
@@ -299,7 +416,7 @@
     </section>
 
     <!-- Featured Destinations -->
-    <section class="py-20 px-6 bg-brand-sand">
+    <section class="py-20 px-6 backdrop-blur-[2px] bg-white/5">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4 reveal">Popular Destinations</h2>
             <p class="text-gray-600 max-w-2xl mx-auto mb-12 reveal">Explore the most visited and breathtaking locations

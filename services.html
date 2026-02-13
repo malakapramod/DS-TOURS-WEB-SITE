@@ -95,10 +95,96 @@
         .logo-animated:hover {
             transform: scale(1.05) rotate(2deg);
         }
+
+        /* Premium Image Background with Animation */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/services-bg.png');
+            /* The customer support image */
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            animation: ken-burns 40s infinite alternate ease-in-out;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
+        }
+
+        @keyframes ken-burns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.15) translate(-1%, -1%);
+            }
+        }
+
+        /* Subtle floating motes over the image */
+        .bg-mote {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: mote-float 25s infinite linear;
+        }
+
+        @keyframes mote-float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(60px);
+                opacity: 0;
+            }
+        }
+
+        /* Section Styling */
+        section {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
     </style>
 </head>
 
-<body class="bg-brand-sand text-gray-800 font-sans">
+<body class="text-gray-800 font-sans overflow-x-hidden relative">
+
+    <!-- Animated Background Elements -->
+    <div class="animated-bg">
+        <div class="bg-image"></div>
+        <div class="bg-overlay"></div>
+        <!-- Light floaty motes -->
+        <div class="bg-mote" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="bg-mote" style="left: 40%; animation-delay: -8s;"></div>
+        <div class="bg-mote" style="left: 70%; animation-delay: -16s;"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-dark shadow-lg" id="navbar">
@@ -152,7 +238,7 @@
     </header>
 
     <!-- Services List -->
-    <section class="py-20 px-6">
+    <section class="py-20 px-6 bg-white/40">
         <div class="container mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
