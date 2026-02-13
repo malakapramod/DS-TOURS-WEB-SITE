@@ -1,0 +1,7 @@
+Login as Admin (admin@dstours.lk / admin123).
+
+DB details
+
+server - dstours
+user name - dstours
+password -  dstours@123

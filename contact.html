@@ -56,6 +56,89 @@
             background-position: center;
             background-attachment: fixed;
         }
+
+        /* Logo Animations */
+        @keyframes logo-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+            }
+
+            50% {
+                transform: translateY(-5px);
+                filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+            }
+        }
+
+        @keyframes logo-shine {
+            0% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.2) contrast(1.1);
+            }
+
+            100% {
+                filter: brightness(1);
+            }
+        }
+
+        .logo-animated {
+            animation: logo-float 4s ease-in-out infinite, logo-shine 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .logo-animated:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Multi-select Styles */
+        .multiselect-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .select-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkboxes {
+            display: none;
+            border: 1px solid #ccc;
+            border-top: none;
+            position: absolute;
+            background-color: white;
+            width: 100%;
+            z-index: 10;
+            max-height: 250px;
+            overflow-y: auto;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkboxes label {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .checkboxes label:hover {
+            background-color: #f3f4f6;
+        }
+
+        .checkboxes input {
+            margin-right: 10px;
+        }
+
+        .show-checkboxes {
+            display: block;
+        }
     </style>
 </head>
 
@@ -64,8 +147,11 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-dark shadow-lg" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
-                <span class="text-brand-gold text-3xl">✈</span> Ceylon Crown Travels
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="images/logo.png" alt="Ceylon Crown Travels Logo" class="h-16 w-auto logo-animated">
+                <span
+                    class="text-xl font-bold text-white tracking-wider hidden sm:block group-hover:text-brand-gold transition-colors">Ceylon
+                    Crown Travels</span>
             </a>
 
             <div class="hidden md:flex items-center space-x-8">
@@ -192,23 +278,43 @@
 
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label for="location" class="block text-gray-700 font-bold mb-2">Visit Location</label>
-                                <select id="location"
-                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold bg-gray-50">
-                                    <option value="" disabled selected>Select a location</option>
-                                    <option value="Sigiriya">Sigiriya</option>
-                                    <option value="Ella">Ella</option>
-                                    <option value="Mirissa">Mirissa</option>
-                                    <option value="Kandy">Kandy</option>
-                                    <option value="Galle Fort">Galle Fort</option>
-                                    <option value="Nuwara Eliya">Nuwara Eliya</option>
-                                    <option value="Yala National Park">Yala National Park</option>
-                                    <option value="Anuradhapura">Anuradhapura</option>
-                                    <option value="Polonnaruwa">Polonnaruwa</option>
-                                    <option value="Round Tour">Round Tour (Multiple Lists)</option>
-                                    <option value="Airport Transfer">Airport Transfer</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                <label class="block text-gray-700 font-bold mb-2">Visit Location (Multiple)</label>
+                                <div class="multiselect-container">
+                                    <div class="select-box w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold bg-gray-50"
+                                        onclick="toggleCheckboxes()">
+                                        <span id="selected-locations-text">Select locations</span>
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </div>
+                                    <div id="checkboxes" class="checkboxes rounded-b-lg">
+                                        <label><input type="checkbox" value="Sigiriya" onchange="updateSelectedText()">
+                                            Sigiriya</label>
+                                        <label><input type="checkbox" value="Ella" onchange="updateSelectedText()">
+                                            Ella</label>
+                                        <label><input type="checkbox" value="Mirissa" onchange="updateSelectedText()">
+                                            Mirissa</label>
+                                        <label><input type="checkbox" value="Kandy" onchange="updateSelectedText()">
+                                            Kandy</label>
+                                        <label><input type="checkbox" value="Galle Fort"
+                                                onchange="updateSelectedText()"> Galle Fort</label>
+                                        <label><input type="checkbox" value="Nuwara Eliya"
+                                                onchange="updateSelectedText()"> Nuwara Eliya</label>
+                                        <label><input type="checkbox" value="Yala National Park"
+                                                onchange="updateSelectedText()"> Yala National Park</label>
+                                        <label><input type="checkbox" value="Anuradhapura"
+                                                onchange="updateSelectedText()"> Anuradhapura</label>
+                                        <label><input type="checkbox" value="Polonnaruwa"
+                                                onchange="updateSelectedText()"> Polonnaruwa</label>
+                                        <label><input type="checkbox" value="Round Tour"
+                                                onchange="updateSelectedText()"> Round Tour</label>
+                                        <label><input type="checkbox" value="Airport Transfer"
+                                                onchange="updateSelectedText()"> Airport Transfer</label>
+                                        <label><input type="checkbox" value="Other" onchange="updateSelectedText()">
+                                            Other</label>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <label for="vehicle" class="block text-gray-700 font-bold mb-2">Vehicle Type</label>
@@ -265,8 +371,11 @@
     <footer class="bg-gray-900 text-white py-12 px-6 border-t border-gray-800">
         <div class="container mx-auto grid md:grid-cols-3 gap-12 mb-8">
             <div>
-                <a href="index.html" class="text-2xl font-bold text-white tracking-wider flex items-center gap-2 mb-4">
-                    <span class="text-brand-gold text-3xl">✈</span> Ceylon Crown Travels
+                <a href="index.html" class="flex items-center gap-3 mb-4 group">
+                    <img src="images/logo.png" alt="Logo" class="h-12 w-auto logo-animated">
+                    <span
+                        class="text-xl font-bold text-white tracking-wider group-hover:text-brand-gold transition-colors">Ceylon
+                        Crown Travels</span>
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed">
                     Your trusted partner for exploring the wonders of Sri Lanka. We provide safe, reliable, and
@@ -317,33 +426,69 @@
                     <!-- Scripts -->
                     <script src="js/script.js"></script>
                     <script>
+                        // Multi-select Logic
+                        let expanded = false;
+                        function toggleCheckboxes() {
+                            const checkboxes = document.getElementById("checkboxes");
+                            if (!expanded) {
+                                checkboxes.style.display = "block";
+                                expanded = true;
+                            } else {
+                                checkboxes.style.display = "none";
+                                expanded = false;
+                            }
+                        }
+
+                        function updateSelectedText() {
+                            const checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
+                            const selected = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+                            const text = document.getElementById('selected-locations-text');
+                            if (selected.length === 0) {
+                                text.innerText = 'Select locations';
+                            } else if (selected.length <= 2) {
+                                text.innerText = selected.join(', ');
+                            } else {
+                                text.innerText = `${selected.length} locations selected`;
+                            }
+                        }
+
+                        // Close dropdown when clicking outside
+                        document.addEventListener('click', (e) => {
+                            const container = document.querySelector('.multiselect-container');
+                            if (!container.contains(e.target) && expanded) {
+                                toggleCheckboxes();
+                            }
+                        });
+
                         // Check for 'dest' query parameter to pre-fill location
                         const urlParams = new URLSearchParams(window.location.search);
                         const dest = urlParams.get('dest');
                         if (dest) {
-                            const locationSelect = document.getElementById('location');
                             const formattedDest = dest.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-                            // Try to set the value if it mimics one of the options, essentially partial matching or direct matching
-                            for (let i = 0; i < locationSelect.options.length; i++) {
-                                if (locationSelect.options[i].value.toLowerCase() === formattedDest.toLowerCase()) {
-                                    locationSelect.selectedIndex = i;
-                                    break;
+                            const checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
+                            checkboxes.forEach(cb => {
+                                if (cb.value.toLowerCase() === formattedDest.toLowerCase()) {
+                                    cb.checked = true;
                                 }
-                            }
+                            });
+                            updateSelectedText();
                         }
 
                         function sendWhatsAppMessage() {
                             // Get form values
                             const name = document.getElementById('name').value;
                             const whatsapp = document.getElementById('whatsapp').value;
-                            const location = document.getElementById('location').value;
+
+                            const locationCheckboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
+                            const locations = Array.from(locationCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+
                             const vehicle = document.getElementById('vehicle').value;
                             const passengers = document.getElementById('passengers').value;
                             const message = document.getElementById('message').value;
 
                             // Validation (Basic)
-                            if (!name || !whatsapp || !location || !vehicle || !passengers) {
-                                alert('Please fill in all required fields (Name, WhatsApp, Location, Vehicle, Passengers).');
+                            if (!name || !whatsapp || locations.length === 0 || !vehicle || !passengers) {
+                                alert('Please fill in all required fields (Name, WhatsApp, Locations, Vehicle, Passengers).');
                                 return;
                             }
 
@@ -352,7 +497,7 @@
                             const text = `*New Booking Inquiry*\n\n` +
                                 `*Name:* ${name}\n` +
                                 `*Client WhatsApp:* ${whatsapp}\n` +
-                                `*Location:* ${location}\n` +
+                                `*Locations:* ${locations.join(', ')}\n` +
                                 `*Vehicle:* ${vehicle}\n` +
                                 `*Passengers:* ${passengers}\n` +
                                 `*Message:* ${message ? message : 'N/A'}`;
