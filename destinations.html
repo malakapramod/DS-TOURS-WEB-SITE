@@ -202,6 +202,7 @@
                 <a href="destinations.html" class="text-brand-gold transition-colors font-medium">Destinations</a>
                 <a href="services.html"
                     class="text-white hover:text-brand-gold transition-colors font-medium">Services</a>
+                <a href="faq.html" class="text-white hover:text-brand-gold transition-colors font-medium">FAQ</a>
                 <a href="rate-us.html" class="text-white hover:text-brand-gold transition-colors font-medium">Rate
                     Us</a>
                 <a href="contact.html"
@@ -223,6 +224,7 @@
                 <a href="about.html" class="text-white hover:text-brand-gold">About</a>
                 <a href="destinations.html" class="text-brand-gold">Destinations</a>
                 <a href="services.html" class="text-white hover:text-brand-gold">Services</a>
+                <a href="faq.html" class="text-white hover:text-brand-gold">FAQ</a>
                 <a href="rate-us.html" class="text-white hover:text-brand-gold">Rate Us</a>
                 <a href="contact.html" class="text-brand-gold font-bold">Contact Us</a>
             </div>
@@ -252,18 +254,19 @@
     <script>
         // --- HELPER: Static Data for Destinations ---
         const defaultDestinations = [
-            { id: 1, title: 'Sigiriya', description: 'Experience the "Lion Rock," a majestic ancient rock fortress and UNESCO World Heritage site featuring stunning frescoes and water gardens.', image_url: 'https://images.unsplash.com/photo-1586616781228-444da79e0f6f?q=80&w=2574&auto=format&fit=crop' },
-            { id: 2, title: 'Ella', description: 'A hiker\'s paradise famous for the Nine Arch Bridge, Little Adam\'s Peak, and breathtaking mountain views through the Ella Gap.', image_url: 'https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2670&auto=format&fit=crop' },
-            { id: 3, title: 'Mirissa', description: 'Relax on crescent-shaped beaches, enjoy whale watching tours, and experience the vibrant nightlife of this coastal gem.', image_url: 'https://images.unsplash.com/photo-1544642055-7cc754cb526d?q=80&w=2574&auto=format&fit=crop' },
-            { id: 4, title: 'Kandy', description: 'The cultural capital of Sri Lanka, home to the Temple of the Sacred Tooth Relic and the beautiful Kandy Lake.', image_url: 'https://images.unsplash.com/photo-1583152643725-7833215276e0?q=80&w=2670&auto=format&fit=crop' },
-            { id: 5, title: 'Galle Fort', description: 'A uniquely preserved Dutch colonial fort filled with charming boutiques, cafes, and historic architecture.', image_url: 'https://images.unsplash.com/photo-1588598136840-36c749969695?q=80&w=2670&auto=format&fit=crop' },
-            { id: 6, title: 'Nuwara Eliya', description: 'Often called "Little England," this cool-climate region is famous for its lush tea plantations and colonial-style cottages.', image_url: 'https://images.unsplash.com/photo-1596561266006-25444ca70a9b?q=80&w=2670&auto=format&fit=crop' },
-            { id: 7, title: 'Yala National Park', description: 'The best place in the world to spot leopards, along with elephants, sloth bears, and exotic bird species.', image_url: 'https://images.unsplash.com/photo-1622321151608-f10d7a040b28?q=80&w=2532&auto=format&fit=crop' },
-            { id: 8, title: 'Adam\'s Peak', description: 'A sacred mountain pilgrimage site for multiple religions, known for its challenging sunrise hikes and stunning views.', image_url: 'https://images.unsplash.com/photo-1540206276207-35f6913a5688?q=80&w=2574&auto=format&fit=crop' },
-            { id: 9, title: 'Arugam Bay', description: 'A world-renowned surfing mecca with a laid-back vibe, perfect for those seeking sun, sand, and great waves.', image_url: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=2670&auto=format&fit=crop' },
-            { id: 10, title: 'Polonnaruwa', description: 'Explore the remarkably preserved ruins of Sri Lanka\'s second ancient capital, featuring spectacular stone sculptures and temples.', image_url: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?q=80&w=2574&auto=format&fit=crop' },
-            { id: 11, title: 'Trincomalee', description: 'Home to the pristine Nilaveli Beach and Pigeon Island, offering some of the best snorkeling and diving in the country.', image_url: 'https://images.unsplash.com/photo-1600850056064-a8b380df8395?q=80&w=2574&auto=format&fit=crop' },
-            { id: 12, title: 'Bentota', description: 'A premium beach resort destination known for its wide sandy shores and exciting water sports on the Bentota River.', image_url: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=80&w=2670&auto=format&fit=crop' }
+            { id: 1, title: 'Sigiriya', description: 'Experience the "Lion Rock," a majestic ancient rock fortress and UNESCO World Heritage site featuring stunning frescoes and water gardens.', image_url: 'images/Sigiriya-d1.jpg' },
+            { id: 2, title: 'Ella', description: 'A hiker\'s paradise famous for the Nine Arch Bridge, Little Adam\'s Peak, and breathtaking mountain views through the Ella Gap.', image_url: 'images/ella-d2.jpg' },
+            { id: 3, title: 'Mirissa', description: 'Relax on crescent-shaped beaches, enjoy whale watching tours, and experience the vibrant nightlife of this coastal gem.', image_url: 'images/mirissa-d3.jpg' },
+            { id: 4, title: 'Kandy', description: 'The cultural capital of Sri Lanka, home to the Temple of the Sacred Tooth Relic and the beautiful Kandy Lake.', image_url: 'images/kandy-d4.jpg' },
+            { id: 5, title: 'Galle Fort', description: 'A uniquely preserved Dutch colonial fort filled with charming boutiques, cafes, and historic architecture.', image_url: 'images/galle fort-d5.jpg' },
+            { id: 6, title: 'Nuwara Eliya', description: 'Often called "Little England," this cool-climate region is famous for its lush tea plantations and colonial-style cottages.', image_url: 'images/Nuwara eliya-d6.jpg' },
+            { id: 7, title: 'Yala National Park', description: 'The best place in the world to spot leopards, along with elephants, sloth bears, and exotic bird species.', image_url: 'images/yala-d6.jpg' },
+            { id: 8, title: 'Udawalawa National Park', description: 'Udawalawa National Park is one of the best wildlife safari destinations in Sri Lanka. It is famous for its large population of wild elephants and beautiful open landscapes.', image_url: 'images/udawalawa-d7.jpg' },
+            { id: 9, title: 'Adam\'s Peak', description: 'A sacred mountain pilgrimage site for multiple religions, known for its challenging sunrise hikes and stunning views.', image_url: 'images/adp-d8.jpg' },
+            { id: 10, title: 'Arugam Bay', description: 'A world-renowned surfing mecca with a laid-back vibe, perfect for those seeking sun, sand, and great waves.', image_url: 'images/aru-d9.jpg' },
+            { id: 11, title: 'Polonnaruwa', description: 'Explore the remarkably preserved ruins of Sri Lanka\'s second ancient capital, featuring spectacular stone sculptures and temples.', image_url: 'images/pol-d10.jpg' },
+            { id: 12, title: 'Trincomalee', description: 'Home to the pristine Nilaveli Beach and Pigeon Island, offering some of the best snorkeling and diving in the country.', image_url: 'images/trinco-d11.jpg' },
+            { id: 13, title: 'Bentota', description: 'A premium beach resort destination known for its wide sandy shores and exciting water sports on the Bentota River.', image_url: 'images/ben-d12.jpg' }
         ];
 
 
@@ -340,6 +343,7 @@
                     <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
                     <li><a href="destinations.html" class="hover:text-white transition-colors">Destinations</a></li>
                     <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                    <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
                     <li><a href="rate-us.html" class="hover:text-white transition-colors">Rate Us</a></li>
                     <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
                 </ul>

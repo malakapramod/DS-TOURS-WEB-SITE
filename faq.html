@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Ceylon Crown Travels</title>
+    <meta name="description"
+        content="Frequently Asked Questions about traveling to Sri Lanka with Ceylon Crown Travels.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#00897b',
+                        'brand-dark': '#004d40',
+                        'brand-gold': '#ffb300',
+                        'brand-sand': '#f7f3e8',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2694&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Logo Animations */
+        @keyframes logo-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+            }
+
+            50% {
+                transform: translateY(-5px);
+                filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+            }
+        }
+
+        @keyframes logo-shine {
+            0% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.2) contrast(1.1);
+            }
+
+            100% {
+                filter: brightness(1);
+            }
+        }
+
+        .logo-animated {
+            animation: logo-float 4s ease-in-out infinite, logo-shine 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .logo-animated:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Premium Image Background with Animation */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/main-bg.png');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            animation: ken-burns 40s infinite alternate ease-in-out;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
+        }
+
+        @keyframes ken-burns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.15) translate(-1%, -1%);
+            }
+        }
+
+        .bg-mote {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: mote-float 25s infinite linear;
+        }
+
+        @keyframes mote-float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(60px);
+                opacity: 0;
+            }
+        }
+
+        /* FAQ Accordion Styling */
+        .faq-item {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .faq-question {
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding-top: 1rem;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        section {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800 font-sans overflow-x-hidden relative">
+
+    <!-- Animated Background Elements -->
+    <div class="animated-bg">
+        <div class="bg-image"></div>
+        <div class="bg-overlay"></div>
+        <div class="bg-mote" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="bg-mote" style="left: 40%; animation-delay: -8s;"></div>
+        <div class="bg-mote" style="left: 70%; animation-delay: -16s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-dark shadow-lg" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="images/logo.png" alt="Logo" class="h-16 w-auto logo-animated">
+                <span
+                    class="text-xl font-bold text-white tracking-wider hidden sm:block group-hover:text-brand-gold transition-colors">Ceylon
+                    Crown Travels</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-white hover:text-brand-gold transition-colors font-medium">Home</a>
+                <a href="about.html" class="text-white hover:text-brand-gold transition-colors font-medium">About</a>
+                <a href="destinations.html"
+                    class="text-white hover:text-brand-gold transition-colors font-medium">Destinations</a>
+                <a href="services.html"
+                    class="text-white hover:text-brand-gold transition-colors font-medium">Services</a>
+                <a href="faq.html" class="text-brand-gold transition-colors font-medium">FAQ</a>
+                <a href="rate-us.html" class="text-white hover:text-brand-gold transition-colors font-medium">Rate
+                    Us</a>
+                <a href="contact.html"
+                    class="px-6 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-yellow-400 transition-transform transform hover:scale-105 shadow-lg">Contact
+                    Us</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark shadow-xl border-t border-gray-700">
+            <div class="flex flex-col py-4 px-6 space-y-4">
+                <a href="index.html" class="text-white hover:text-brand-gold">Home</a>
+                <a href="about.html" class="text-white hover:text-brand-gold">About</a>
+                <a href="destinations.html" class="text-white hover:text-brand-gold">Destinations</a>
+                <a href="services.html" class="text-white hover:text-brand-gold">Services</a>
+                <a href="faq.html" class="text-brand-gold">FAQ</a>
+                <a href="rate-us.html" class="text-white hover:text-brand-gold">Rate Us</a>
+                <a href="contact.html" class="text-brand-gold font-bold">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="h-[40vh] flex items-center justify-center text-center hero-bg pt-20">
+        <div class="px-6 reveal active">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">FAQ</h1>
+            <p class="text-xl text-gray-200">Everything you need to know about your Sri Lankan adventure</p>
+        </div>
+    </header>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-6 bg-white/40">
+        <div class="container mx-auto max-w-4xl">
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white/80 p-6 rounded-2xl shadow-md border border-white/40 reveal active">
+                    <div class="faq-question flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-bold text-brand-dark">What is the best time to visit Sri Lanka?</h3>
+                        <span class="faq-icon text-brand-gold transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="faq-answer text-gray-600 leading-relaxed">
+                        The best time to visit depends on the region. For the west and south coasts and the hill
+                        country, December to March is ideal. For the east coast, the best weather is from April to
+                        September.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white/80 p-6 rounded-2xl shadow-md border border-white/40 reveal">
+                    <div class="faq-question flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-bold text-brand-dark">Do I need a visa for Sri Lanka?</h3>
+                        <span class="faq-icon text-brand-gold transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="faq-answer text-gray-600 leading-relaxed">
+                        Yes, most travelers need an Electronic Travel Authorization (ETA) or a visa to enter Sri Lanka.
+                        You can apply online before your arrival.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white/80 p-6 rounded-2xl shadow-md border border-white/40 reveal">
+                    <div class="faq-question flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-bold text-brand-dark">Is it safe to travel in Sri Lanka?</h3>
+                        <span class="faq-icon text-brand-gold transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="faq-answer text-gray-600 leading-relaxed">
+                        Sri Lanka is generally a safe country for tourists. However, as with any travel destination,
+                        it's wise to take standard precautions and stay updated on local news.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-white/80 p-6 rounded-2xl shadow-md border border-white/40 reveal">
+                    <div class="faq-question flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-bold text-brand-dark">What currency is used in Sri Lanka?</h3>
+                        <span class="faq-icon text-brand-gold transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="faq-answer text-gray-600 leading-relaxed">
+                        The official currency is the Sri Lankan Rupee (LKR). Major credit cards are widely accepted in
+                        urban areas, but it's handy to carry cash for small purchases and tips.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item bg-white/80 p-6 rounded-2xl shadow-md border border-white/40 reveal">
+                    <div class="faq-question flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-bold text-brand-dark">Can Ceylon Crown Travels customize my tour?</h3>
+                        <span class="faq-icon text-brand-gold transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="faq-answer text-gray-600 leading-relaxed">
+                        Absolutely! We specialize in creating personalized travel experiences tailored to your
+                        interests, budget, and schedule. Contact us today to start planning!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 px-6 bg-brand-dark/20 flex justify-center">
+        <div class="container bg-white/80 backdrop-blur-md p-10 rounded-3xl shadow-2xl max-w-2xl text-center reveal">
+            <h2 class="text-3xl font-bold text-brand-dark mb-4">Still have questions?</h2>
+            <p class="text-gray-600 mb-8">We're here to help you plan the perfect trip. Reach out to us via WhatsApp or
+                our contact form.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html"
+                    class="px-8 py-3 bg-brand-green text-white rounded-full font-bold hover:bg-brand-dark transition-all shadow-lg">Contact
+                    Us</a>
+                <a href="https://wa.me/94743205752" target="_blank"
+                    class="px-8 py-3 bg-green-500 text-white rounded-full font-bold hover:bg-green-600 transition-all shadow-lg flex items-center justify-center gap-2">WhatsApp
+                    Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6 border-t border-gray-800">
+        <div class="container mx-auto grid md:grid-cols-3 gap-12 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-3 mb-4 group">
+                    <img src="images/logo.png" alt="Logo" class="h-12 w-auto logo-animated">
+                    <span
+                        class="text-xl font-bold text-white tracking-wider group-hover:text-brand-gold transition-colors">Ceylon
+                        Crown Travels</span>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed">Your trusted partner for exploring the wonders of Sri
+                    Lanka. We provide safe, reliable, and memorable travel experiences.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-brand-gold">Quick Links</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="destinations.html" class="hover:text-white transition-colors">Destinations</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                    <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                    <li><a href="rate-us.html" class="hover:text-white transition-colors">Rate Us</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-brand-gold">Contact Us</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li class="flex items-center gap-2"><span>📞</span> <a href="tel:+94743205752"
+                            class="hover:text-white">+94 74 320 5752</a></li>
+                    <li class="flex items-center gap-2"><span>📧</span> <a href="mailto:malakapramod23@gamil.com"
+                            class="hover:text-white">CeylonCrownTravels@gamil.com</a></li>
+                    <li class="flex items-center gap-2"><span>📍</span> Sri Lanka</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2024 Ceylon Crown Travels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const isOpen = item.classList.contains('open');
+
+            // Close all other items
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+            // Toggle current item
+            if (!isOpen) {
+                item.classList.add('open');
+            }
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
